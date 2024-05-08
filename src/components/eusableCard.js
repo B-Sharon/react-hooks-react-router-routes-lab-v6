@@ -2,11 +2,13 @@ import { useEffect, useState } from "react";
 import Card from "../components/ReusableCard";
 import NavBar from "../components/NavBar";
 
+
+const BaseUrl='http://localhost:4000/directors'
 function Directors() {
   const [directors, setDirectors] = useState([])
 
   useEffect(() =>{
-    fetch("http://localhost:4000/directors")
+    fetch(BaseUrl)
     .then(r => r.json())
     .then(data => setDirectors(data))
     .catch(error => console.error(error))
